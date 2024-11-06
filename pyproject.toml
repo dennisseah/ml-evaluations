@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "ml-evaluations"
+version = "0.1.0"
+description = "Machine Learning Evaluations"
+authors = ["Dennis Seah <dennis.seah@microsoft.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+scipy = "^1.14.1"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.7.2"
+pre-commit = "^4.0.1"
+pyright = "^1.1.388"
+pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
+pytest-mock = "^3.14.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+exclude = ["typings"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "TID"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+exclude = ["typings", ".venv", ".vscode", ".git"]
+
+[tool.coverage.run]
+omit = [
+    "*/__init__.py"]
